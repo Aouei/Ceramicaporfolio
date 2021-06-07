@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block nav %}
+	{% for seccion, value in secciones.items() %}
+		{% if value.active == 0 %}
+			<a class="navbar-item text-dark me-3 nav" href="{{value.url}}">{{seccion}}</a>
+		{% else %}
+			<a class="navbar-item text-dark me-3 nav" href="{{value.url}}"><strong>{{seccion}}</strong></a>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block nav_mobile %}
+	{% for seccion, value in secciones.items() %}
+		{% if value.active == 0 %}
+			<a class="navbar-item text-dark me-3 mt-2 nav" href="{{value.url}}">{{seccion}}</a>
+		{% else %}
+			<a class="navbar-item text-dark me-3 mt-2 nav" href="{{value.url}}"><strong>{{seccion}}</strong></a>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block contenido %}
+	<div class="container-fluid mt-2 mb-4">
+	    <div class="container">
+	      {% for fila in piezas %}
+	        <div class="row mt-md-4">
+	            {% for pieza in fila %}
+	              <div class="col-sm-12 col-md-4 mt-4 m-md-0">
+	                <img class="w-100 bg-dark" src="{{pieza.0}}" onmouseover="hover(this, '{{pieza.1}}');" onmouseout="unhover(this, '{{pieza.0}}');">
+	              </div>
+	            {% endfor %}
+	        </div>
+	      {% endfor %}
+	    </div>
+	</div>
+{% endblock %}

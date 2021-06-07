@@ -1,0 +1,132 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <title>{% block titulo %}Sergio Heredia Portfolio{% endblock %}</title>
+      <!--Import Google Icon Font-->
+      <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+      
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <meta name="keywords" content="Sergio, Heredia, Cerámica, Piezas, Esmaltes, Engobes, Portfolio, Artesanía">
+      <meta name="description" content="Portfolio de cerámica Sergio Heredia">
+      <meta name="author" content="Sergio Heredia Carmona">
+      
+      <link rel="shortcut icon" href="{{ url_for('static', filename='IMG/Logo.ico') }}">
+    </head>
+
+    <body class="overflow-auto">
+
+    	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+	    
+      <style type="text/css">
+        .red{
+          height: 24px;
+          width: 24px;
+        }
+
+        .logo_border{
+          border-radius: 50%;
+          border-color: black;
+          border-width: 5px;
+        }
+
+        .logo_mobile{
+          height: 64px;
+          width: 64px;
+        }
+
+        .margin-top{
+          margin-top: 100px;
+        }
+
+        .nav{
+          margin-left: 10px;
+          font-size: 18px;  
+        }
+
+        .nav:hover{
+          color: grey !important;
+          text-decoration: underline;
+        }
+
+        .bold{
+          font-weight: bold;
+        }
+
+        strong{
+          font-size: 20px;
+        }
+
+        textarea {
+          resize: none;
+        }
+
+        a{
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        @font-face {
+          font-family: 'pottery';
+          src: url('/static/font/opensans-regular-webfont.woff2') format('woff2'),
+               url('/static/font/opensans-regular-webfont.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        a, article, p, label, span, button{
+          font-family: "pottery";
+        }
+      </style>
+
+      <script type="text/javascript">
+        function hover(element, data) {
+          element.setAttribute('src', data);
+        }
+
+        function unhover(element, data) {
+          element.setAttribute('src', data);
+        }
+      </script>
+
+    	<header class="container-fluid ">
+
+    		<div class="row">
+
+          <div class="col-12 col-md-6 d-none d-md-block mt-4">
+            <a href="/" class="ms-3"><img src="/static/IMG/Logo.png"></a>
+          </div>
+
+          <div class="d-none d-md-block col-12 col-md-6">
+            <div class="d-flex justify-content-end margin-top">  
+              {% block nav %}
+              {% endblock %}
+            </div>
+          </div>
+
+          <div class="w-100 col-6 d-md-none mt-4 d-flex flex-column align-items-center">
+            
+            <a href="/"><img src="/static/IMG/Logo.png" class="logo_mobile"></a>
+
+            {% block nav_mobile %}
+            {% endblock %}
+          </div>
+
+    		</div>
+
+	    </header>
+	    
+	    <main>
+        {% block contenido %}
+        {% endblock %}
+	    </main>
+
+    </body>
+
+  </html>
+        

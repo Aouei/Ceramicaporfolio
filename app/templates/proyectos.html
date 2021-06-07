@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block nav %}
+	{% for seccion, value in secciones.items() %}
+		{% if value.active == 0 %}
+			<a class="navbar-item text-dark me-3 nav" href="{{value.url}}">{{seccion}}</a>
+		{% else %}
+			<a class="navbar-item text-dark me-3 nav" href="{{value.url}}"><strong>{{seccion}}</strong></a>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block nav_mobile %}
+	{% for seccion, value in secciones.items() %}
+		{% if value.active == 0 %}
+			<a class="navbar-item text-dark me-3 mt-2 nav" href="{{value.url}}">{{seccion}}</a>
+		{% else %}
+			<a class="navbar-item text-dark me-3 mt-2 nav" href="{{value.url}}"><strong>{{seccion}}</strong></a>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block contenido %}
+	<div class="container-fluid mt-2 mb-4">
+	    <div class="container">
+	        <div class="row mt-md-4">
+	        	<div class="card col-sm-12 col-md-4 mt-4 m-md-0">
+	        		<img class="mt-2 card-img-top w-100 bg-dark" src="{{url_for('static', filename='proyectos/la_marina_front.jpg')}}" alt="LA MARINA restaurant">
+					<div class="card-body">
+						<p class="card-text">Juego de 24 vasos para el restaurante LA MARINA en Belfort, Francia.</p>
+					</div>
+				</div>
+	        </div>
+	    </div>
+	</div>
+{% endblock %}

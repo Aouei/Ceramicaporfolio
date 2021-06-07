@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block nav %}
+	{% for seccion, value in secciones.items() %}
+		{% if value.active == 0 %}
+			<a class="navbar-item text-dark me-3 nav" href="{{value.url}}">{{seccion}}</a>
+		{% else %}
+			<a class="navbar-item text-dark me-3 nav" href="{{value.url}}"><strong>{{seccion}}</strong></a>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block nav_mobile %}
+	{% for seccion, value in secciones.items() %}
+		{% if value.active == 0 %}
+			<a class="navbar-item text-dark me-3 mt-2  nav" href="{{value.url}}">{{seccion}}</a>
+		{% else %}
+			<a class="navbar-item text-dark me-3  mt-2 nav" href="{{value.url}}"><strong>{{seccion}}</strong></a>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+{% block contenido %}
+	<div class="container">
+		<div class="row">
+			<div class="col-6 w-100 d-flex justify-content-center mt-4">
+				<img src="{{ url_for('static', filename='IMG/Yo.jpg') }}">
+			</div>
+			<article class="col-12 text-center my-4">
+				<p>
+					Hola, me llamo Sergio Heredia Carmona, me formé como ingeniero informático en la universidad de Granada. Sin embargo, tras la cuarentera decidí explorar otros campos como fueron la cestería y la cerámica. Descubrí que me gusta más la cerámica, porque es como volver a la infancia cuando uno jugaba con plastilina o construía castillos de arena en la playa.	
+				</p>
+				<p>
+					Es casi mágico como a partir de un pedacito de arcilla, se pueden conseguir piezas grandes y preciosas. Verdaderamente he descubierto que una gran parte de mí ama la cerámica más de lo que pudiera imaginar. Porque da igual si estás triste, enfadado o neutral, cuando estás haciendo una pieza, solo existe ese momento en el que estás dando forma a un pedacito de arcilla.	
+				</p>
+				<p>
+					Dicho esto, espero que hayais disfrutado de mi humilde selección de piezas.
+				</p>
+				<p>
+					Si quieres saber más sobre mis proyectos y experiencias, búscame en instagram.
+					<a href="https://www.instagram.com/pottery_of_happiness/" class="me-3 mt-3">
+		        		<img src="{{ url_for('static', filename='IMG/instagram.png') }}" class="red">
+		        	</a>
+				</p>
+				<p>
+					PD: El icono de Instagram ha sido realizado por Freepik de flaticon.es
+				</p>
+			</article>
+		</div>
+	</div>
+{% endblock %}
